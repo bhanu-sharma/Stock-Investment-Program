@@ -9,6 +9,9 @@ def Key_Stats(gather="Total Debt/Equity (mrq)"):
     statspath = path + "/_KeyStats"
     stock_list = [i[0] for i in os.walk(statspath)]
     df = pd.DataFrame(columns = ['Date','Unix','Ticker','DE Ratio'])
+
+    sp500_df = pd.DataFrame.from_csv("YAHOO-INDEX_GSPC.csv")
+
     for each_dir in stock_list[1:10]:
         each_file = os.listdir(each_dir)
         ticker = each_dir.split("\\")[1]
